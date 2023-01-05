@@ -1,0 +1,151 @@
+@import "assets/scss/config/fonts";
+@import "assets/scss/config/reset";
+@import "assets/scss/config/vars";
+@import "assets/scss/config/utility";
+@import "assets/scss/modules/typography";
+@import "assets/scss/modules/fields";
+@import "assets/scss/modules/buttons";
+@import "assets/scss/modules/toast";
+@import "assets/scss/config/global";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.app-author {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-container {
+  --gap: 15px;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: var(--bcs-grey-4);
+  padding: 10px;
+  transition: all 0.3s var(--ease-elastic-1);
+}
+
+.color-generator {
+  --color-white: #ffffff;
+  --color-dark: #1b1d20;
+  --c-accent: #f9dd8f;
+  --bkg: #E8ECF3;
+  --c-white: #ffffff;
+  --c-100: #A1B5C1;
+  --c-200: #0B1225;
+  --c-300: #7E6CCA;
+  --c-400: #F9ACA7;
+
+  position: relative;
+  text-align: center;
+}
+
+.color-generator__alert {
+  border-radius: 30px;
+  background-color: var(--c-200);
+  color: var(--c-white);
+  padding: 13px;
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  content: '';
+  animation: showAlert 400ms forwards;
+  transition: all 0.4s ease;
+}
+
+.color-generator__alert span {
+  font-weight: 700;
+}
+
+.color-generator__title {
+  margin-bottom: 20px;
+}
+
+.color-generator__card {
+  --bdrs: 5px;
+
+  max-width: calc(300px + (330 - 300) * ((100vw - 300px) / (var(--maximumViewportWidth) - 300)));
+  padding: calc(10px + (15 - 10) * ((100vw - 300px) / (var(--maximumViewportWidth) - 300)));
+  margin: auto auto calc(30px + (35 - 30) * ((100vw - 300px) / (var(--maximumViewportWidth) - 300)));
+  width: 100%;
+  background-color: var(--c-white);
+  border-radius: var(--bdrs);
+  box-shadow: 0 5px 10px -10px rgba(34, 60, 80, 0.4);
+}
+
+.color-generator__card-area {
+  min-height: calc(200px + (250 - 200) * ((100vw - 300px) / (var(--maximumViewportWidth) - 300)));
+  margin-bottom: calc(10px + (12 - 10) * ((100vw - 300px) / (var(--maximumViewportWidth) - 300)));
+  border-radius: var(--bdrs);
+  background-color: var(--c-100);
+  transition: all 0.4s ease;
+}
+
+.color-generator__card-name {
+  font-size: calc(18px + (22 - 18) * ((100vw - 300px) / (var(--maximumViewportWidth) - 300)));
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.color-generator__btns {
+  display: grid;
+  gap: calc(10px + (20 - 10) * ((100vw - 300px) / (var(--maximumViewportWidth) - 300)));
+  max-width: calc(200px + (250 - 200) * ((100vw - 300px) / (var(--maximumViewportWidth) - 300)));
+  margin: auto auto 20px;
+}
+
+.color-generator__btn {
+  border-radius: 5px;
+  font-weight: 700;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  padding: 13px 20px;
+  color: var(--c-white);
+}
+
+.color-generator__btn[data-pick] {
+  background-color: var(--c-300);
+}
+
+.color-generator__btn[data-pick]:is(:hover,:focus) {
+  background-color: #9877bd;
+}
+
+.color-generator__btn[data-copy] {
+  background-color: var(--c-400);
+}
+
+.color-generator__btn[data-copy]:is(:hover,:focus) {
+  background-color: #e78c88;
+}
+
+@keyframes showAlert {
+  0% {
+    top: -25%;
+    opacity: 0;
+  }
+  100% {
+    top: -16%;
+    opacity: 1;
+  }
+}
+
+@keyframes hideAlert {
+  0% {
+    top: -16%;
+    opacity: 1;
+  }
+  100% {
+    top: -25%;
+    opacity: 0;
+  }
+}
